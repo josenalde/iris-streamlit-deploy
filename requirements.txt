@@ -1,0 +1,6 @@
+sklearn
+tensorflow
+keras
+pandas
+numpy
+python=3.8.5
