@@ -3,7 +3,7 @@ import streamlit as st
 from keras.models import load_model
 import numpy as np
 
-model = load_model('model.keras')
+model = load_model('models/model.keras')
 
 # assumindo este labelEncoder
 class_labels = ['Iris Setosa', 'Iris Versicolor', 'Iris Virginica']

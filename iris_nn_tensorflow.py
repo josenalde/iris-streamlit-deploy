@@ -39,4 +39,4 @@ model = Model(inputs=input, outputs=output)
 model.compile(optimizer='rmsprop',
               loss='categorical_crossentropy', metrics=['accuracy'])
 model.fit(X_train, y_train, epochs=50)
-model.save('model.keras')
+model.save('models/model.keras')
