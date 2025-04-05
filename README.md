@@ -6,4 +6,5 @@ a simple data app@streamlit for fast evaluation on ML models for classification 
 3) pip install -r requirements.txt
 4) run python iris_nn_tensorflow.py to save a new model
 5) streamlit run app.py
+This code was generated with keras 3.9.2, tensorflow 2.19.1 e python 3.12.8
 <img src='print_screen.png'></img>
