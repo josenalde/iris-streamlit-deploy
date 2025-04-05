@@ -1,9 +1,16 @@
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
-from keras.models import Model
-from keras.layers import Input, Dense
+
+#import os
+#os.environ["KERAS_BACKEND"] = "tensorflow"
+from keras.api.models import Model
+from keras.api.layers import Input, Dense
+from keras.api.utils import to_categorical
+#from keras.models import Model #old version (deprecated)
+#from keras.layers import Input, Dense (deprecated)
+#from keras.utils import to_categorical (deprecated)
 import pandas as pd
-from keras.utils import to_categorical
+
 import numpy as np
 
 df = pd.read_csv('datasets/iris.csv')

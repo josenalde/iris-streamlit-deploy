@@ -1,6 +1,11 @@
 # data app for iris prediction (classification)
 import streamlit as st
-from keras.models import load_model
+# in case of problems with tensorflow try to add this env variable
+#import os
+#os.environ["KERAS_BACKEND"] = "tensorflow"
+
+from keras.api.models import load_model
+#from keras.models import load_model (old)
 import numpy as np
 
 model = load_model('models/model.keras')
