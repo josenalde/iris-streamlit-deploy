@@ -1,16 +1,9 @@
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
-
-#import os
-#os.environ["KERAS_BACKEND"] = "tensorflow"
-from keras.api.models import Model
-from keras.api.layers import Input, Dense
-from keras.api.utils import to_categorical
-#from keras.models import Model #old version (deprecated)
-#from keras.layers import Input, Dense (deprecated)
-#from keras.utils import to_categorical (deprecated)
+from keras.models import Model
+from keras.layers import Input, Dense
 import pandas as pd
-
+from keras.utils import to_categorical
 import numpy as np
 
 df = pd.read_csv('datasets/iris.csv')
@@ -34,8 +27,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 y_onehot = to_categorical(y_train)  # one-hot encoder
 y_train = np.array(y_onehot)
-# X_train = np.array(X_train)
-# print(X_train)
+
 # functional
 input = Input(shape=(2,))  # instancia um tensor Keras
 hidden_layers = Dense(32, activation='relu')(input)  # 32 neuronios
