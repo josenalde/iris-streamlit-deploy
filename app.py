@@ -1,8 +1,15 @@
-# data app for iris prediction (classification)
-import streamlit as st
-from keras.models import load_model
-import numpy as np
 from joblib import load
+import numpy as np
+from keras.models import load_model
+import streamlit as st
+
+
+def get_image_class(target_class):
+    image_path = ['img/setosa.jpg', 'img/versicolor.jpg', 'img/virginica.jpg']
+    return image_path[target_class]
+
+
+# data app for iris prediction (classification)
 
 model_nn = load_model('models/model.keras')
 model_knn = load('models/model-knn.pkl')
@@ -36,24 +43,13 @@ if btn:
     if model_opt == "Rede Neural":
         classes_prob = model_nn.predict(
             np.array([[petal_length_input, petal_width_input]]))
-        if (np.argmax(classes_prob) == 0):
-            st.image('img/setosa.jpg')
-        elif (np.argmax(classes_prob) == 1):
-            st.image('img/versicolor.jpg')
-        else:
-            st.image('img/virginica.jpg')
+        st.image(get_image_class(np.argmax(classes_prob)))
         text = class_labels[np.argmax(classes_prob)]
     else:
         iris_class = model_knn.predict(
             np.array([[petal_length_input, petal_width_input]]))
-        if (iris_class == 0):
-            st.image('img/setosa.jpg')
-        elif (iris_class == 1):
-            st.image('img/versicolor.jpg')
-        else:
-            st.image('img/virginica.jpg')
+        st.image(get_image_class(iris_class[0]))
         text = class_labels[iris_class[0]]
-        print(iris_class[0])
 
     st.html(
         f"""<p class="answer-color">{text}</p>""")
