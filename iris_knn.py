@@ -30,6 +30,6 @@ y_pred = []
 for i in range(s):
     y_pred.append(knn_model.predict([X_test[i, :]]))
 
-print(accuracy_score(y_true=y_test, y_pred=y_test))
+print(accuracy_score(y_true=y_test, y_pred=y_pred))
 with open('models/model-knn.pkl', 'wb') as f:
     pickle.dump(knn_model, f)
